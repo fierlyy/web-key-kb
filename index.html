@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KEY KB FIERLYY</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Background Anime Ecchi Theme: Pink/Magenta/Dark Blue Glow */
+      background: linear-gradient(135deg, #0d0614 0%, #2a0845 40%, #641442 70%, #1a0022 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow: hidden;
+      position: relative;
+      padding: 20px;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Wet / Glossy Ambient Light Effect */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(255, 0, 128, 0.45) 0%, rgba(255, 255, 255, 0) 70%);
+      top: 10%;
+      left: 15%;
+      border-radius: 50%;
+      filter: blur(50px);
+      pointer-events: none;
+      animation: floatLight 8s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+      bottom: 10%;
+      right: 15%;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      animation: floatLight 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatLight {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 40px) scale(1.2); }
+    }
+
+    /* Wet Drop Overlay Simulation */
+    .wet-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Container Glassmorphism Transparan Wet-Look */
+    .app-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 420px;
+      min-height: 500px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 28px;
+      padding: 35px 25px;
+      box-shadow: 
+        0 8px 32px 0 rgba(255, 0, 128, 0.25),
+        inset 0 0 15px rgba(255, 255, 255, 0.25),
+        inset 0 2px 2px rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Water droplet specular highlight di kartu */
+    .app-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -50%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      transform: rotate(30deg);
+      pointer-events: none;
+    }
+
+    /* Animasi Pergeseran Screen Mulus */
+    .screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateX(50px) scale(0.95);
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      padding: 35px 25px;
+      justify-content: center;
+    }
+
+    .screen.active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .screen.exit {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.95);
+      pointer-events: none;
+    }
+
+    /* Typography & Neon Glow */
+    h1.title {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      background: linear-gradient(45deg, #ff71ce, #01cdfe, #b967ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255, 113, 206, 0.6);
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    /* Social Media Box */
+    .social-box {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      padding: 15px;
+      margin-bottom: 25px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .social-item:hover {
+      transform: translateX(5px);
+    }
+
+    .social-item i {
+      font-size: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .social-item.wa i { color: #25D366; background: rgba(37, 211, 102, 0.2); }
+    .social-item.ig i { color: #E1306C; background: rgba(225, 48, 108, 0.2); }
+    .social-item.tt i { color: #00f2fe; background: rgba(0, 242, 254, 0.2); }
+
+    /* Form Inputs */
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #ff94e8;
+      text-shadow: 0 0 8px rgba(255, 148, 232, 0.5);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-group input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #ff71ce;
+      box-shadow: 0 0 15px rgba(255, 113, 206, 0.5), inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Wet Glowing Button */
+    .btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ff71ce 0%, #b967ff 100%);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 
+        0 6px 20px rgba(255, 113, 206, 0.4),
+        inset 0 2px 2px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 
+        0 10px 25px rgba(255, 113, 206, 0.6),
+        inset 0 2px 4px rgba(255, 255, 255, 0.7);
+    }
+
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+      margin-top: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Badges & Accents */
+    .anime-badge {
+      font-size: 10px;
+      background: rgba(255, 113, 206, 0.25);
+      border: 1px solid rgba(255, 113, 206, 0.5);
+      padding: 4px 12px;
+      border-radius: 20px;
+      color: #ffb8f1;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+    }
+
+    /* Status Text */
+    #status {
+      margin-top: 15px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      min-height: 20px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wet-overlay"></div>
+
+  <div class="app-container">
+    
+    <!-- SCREEN 1: HOME SCREEN -->
+    <div class="screen active" id="screenHome">
+      <span class="anime-badge"><i class="fa-solid fa-sparkles"></i> Wet Ecchi Glass v2.0</span>
+      <h1 class="title">KEY KB FIERLYY</h1>
+      
+      <p class="subtitle">Platform kelola & update nomor bot WhatsApp otomatis dengan cepat dan aman.</p>
+
+      <div class="social-box">
+        <a href="https://wa.me/6289518188217" target="_blank" class="social-item wa">
+          <i class="fa-brands fa-whatsapp"></i> 089518188217
+        </a>
+        <a href="https://instagram.com/p4rdhan.__" target="_blank" class="social-item ig">
+          <i class="fa-brands fa-instagram"></i> p4rdhan.__
+        </a>
+        <a href="https://tiktok.com/@frdhnlyy" target="_blank" class="social-item tt">
+          <i class="fa-brands fa-tiktok"></i> frdhnlyy
+        </a>
+      </div>
+
+      <button class="btn" onclick="goToScreen('screenKey')">
+        <i class="fa-solid fa-key"></i> Ganti Nomer
+      </button>
+    </div>
+
+    <!-- SCREEN 2: VERIFIKASI KEY -->
+    <div class="screen" id="screenKey">
+      <span class="anime-badge">Step 1 / 2</span>
+      <h1 class="title">VERIFIKASI KEY</h1>
+      <p class="subtitle">Masukkan Kode Key khusus kamu untuk melanjutkan.</p>
+
+      <div class="form-group">
+        <label for="keyInput">Kode Key / User ID</label>
+        <input type="text" id="keyInput" placeholder="Contoh: pier1" autocomplete="off">
+      </div>
+
+      <button class="btn" onclick="verifyKey()">
+        Konfirmasi Key <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <button class="btn btn-secondary" onclick="goToScreen('screenHome')">
+        <i class="fa-solid fa-arrow-left"></i> Kembali
+      </button>
+
+      <div id="statusKey"></div>
+    </div>
+
+    <!-- SCREEN 3: MASUKKAN NOMOR BARU -->
+    <div class="screen" id="screenPhone">
+      <span class="anime-badge">Step 2 / 2</span>
+      <h1 class="title">NOMOR BARU</h1>
+      <p class="subtitle">Key terverifikasi! Silahkan masukkan nomor WhatsApp baru kamu.</p>
+
+      <div class="form-group">
+        <label for="phoneInput">Nomor WhatsApp Baru</label>
+        <input type="number" id="phoneInput" placeholder="Contoh: 6289526739271" autocomplete="off">
+      </div>
+
+      <button class="btn" onclick="submitNewNumber()">
+        <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+      </button>
+      <button class="btn btn-secondary" onclick="goToScreen('screenKey')">
+        <i class="fa-solid fa-arrow-left"></i> Batal
+      </button>
+
+      <div id="statusPhone"></div>
+    </div>
+
+    <!-- SCREEN 4: SUCCESS SCREEN -->
+    <div class="screen" id="screenSuccess">
+      <div style="font-size: 60px; color: #ff71ce; text-shadow: 0 0 20px #ff71ce; margin-bottom: 15px;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h1 class="title" style="margin-bottom: 10px;">BERHASIL!</h1>
+      <p class="subtitle" id="successMessage">Nomor kamu telah berhasil diperbarui di GitHub.</p>
+
+      <button class="btn" onclick="resetApp()">
+        <i class="fa-solid fa-rotate-right"></i> Kembali ke Home
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Konfigurasi GitHub API
+    const CONFIG = {
+      token: "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",
+      owner: "fierlyy",
+      repo: "bot-keys",
+      filePath: "keys.json",
+      branch: "main"
+    };
+
+    let globalData = null;
+    let globalSha = null;
+    let verifiedKey = "";
+
+    // Fungsi Navigasi Perpindahan Screen Mulus
+    function goToScreen(targetScreenId) {
+      const currentActive = document.querySelector('.screen.active');
+      const targetScreen = document.getElementById(targetScreenId);
+
+      if (currentActive === targetScreen) return;
+
+      if (currentActive) {
+        currentActive.classList.remove('active');
+        currentActive.classList.add('exit');
+        
+        setTimeout(() => {
+          currentActive.classList.remove('exit');
+        }, 500);
+      }
+
+      setTimeout(() => {
+        targetScreen.classList.add('active');
+      }, 150);
+    }
+
+    // Step 1: Verifikasi Key ke GitHub
+    async function verifyKey() {
+      const keyInput = document.getElementById('keyInput').value.trim();
+      const statusDiv = document.getElementById('statusKey');
+
+      if (!keyInput) {
+        statusDiv.style.color = "#ff94e8";
+        statusDiv.innerText = "⚠️ Harap masukkan Kode Key kamu!";
+        return;
+      }
+
+      statusDiv.style.color = "#01cdfe";
+      statusDiv.innerText = "⏳ Memeriksa Key di server...";
+
+      try {
+        const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.filePath}?ref=${CONFIG.branch}`;
+        
+        const response = await fetch(url, {
+          headers: {
+            'Authorization': `token ${CONFIG.token}`,
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        });
+
+        if (!response.ok) throw new Error("Gagal terhubung ke GitHub API.");
+
+        const fileData = await response.json();
+        globalSha = fileData.sha;
+
+        // Decode isi file JSON
+        const decodedContent = decodeURIComponent(escape(atob(fileData.content.replace(/\s/g, ''))));
+        globalData = JSON.parse(decodedContent);
+
+        // Cari apakah Key cocok
+        let keyFound = false;
+        if (globalData.keys && Array.isArray(globalData.keys)) {
+          for (let item of globalData.keys) {
+            if (item.key === keyInput) {
+              keyFound = true;
+              break;
+            }
+          }
+        }
+
+        if (keyFound) {
+          verifiedKey = keyInput;
+          statusDiv.innerText = "";
+          goToScreen('screenPhone'); // Lanjut ke Screen Input Nomor Baru
+        } else {
+          statusDiv.style.color = "#ff94e8";
+          statusDiv.innerText = `❌ Key "${keyInput}" tidak ditemukan!`;
+        }
+
+      } catch (err) {
+        statusDiv.style.color = "#ff94e8";
+        statusDiv.innerText = "❌ Error: " + err.message;
+      }
+    }
+
+    // Step 2: Simpan Nomor Baru ke GitHub
+    async function submitNewNumber() {
+      const phoneInput = document.getElementById('phoneInput').value.trim();
+      const statusDiv = document.getElementById('statusPhone');
+
+      if (!phoneInput) {
+        statusDiv.style.color = "#ff94e8";
+        statusDiv.innerText = "⚠️ Harap isi nomor WhatsApp baru!";
+        return;
+      }
+
+      statusDiv.style.color = "#01cdfe";
+      statusDiv.innerText = "⏳ Menyimpan nomor baru ke GitHub...";
+
+      try {
+        // Update nomor di memory
+        for (let item of globalData.keys) {
+          if (item.key === verifiedKey) {
+            item.allowed_number = phoneInput;
+            break;
+          }
+        }
+
+        // Encode ke base64
+        const updatedBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(globalData, null, 2))));
+        const url = `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/contents/${CONFIG.filePath}`;
+
+        // Send PUT request
+        const putResponse = await fetch(url, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${CONFIG.token}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/vnd.github.v3+json'
+          },
+          body: JSON.stringify({
+            message: `Update nomor untuk key: ${verifiedKey}`,
+            content: updatedBase64,
+            sha: globalSha,
+            branch: CONFIG.branch
+          })
+        });
+
+        if (putResponse.ok) {
+          document.getElementById('successMessage').innerText = `Nomor untuk key "${verifiedKey}" berhasil diubah menjadi ${phoneInput}`;
+          statusDiv.innerText = "";
+          goToScreen('screenSuccess'); // Lanjut ke Screen Sukses
+        } else {
+          throw new Error("Gagal memperbarui file di GitHub.");
+        }
+
+      } catch (err) {
+        statusDiv.style.color = "#ff94e8";
+        statusDiv.innerText = "❌ Error: " + err.message;
+      }
+    }
+
+    // Reset Form & Kembali ke Home
+    function resetApp() {
+      document.getElementById('keyInput').value = "";
+      document.getElementById('phoneInput').value = "";
+      verifiedKey = "";
+      globalData = null;
+      globalSha = null;
+      goToScreen('screenHome');
+    }
+  </script>
+</body>
+</html>
